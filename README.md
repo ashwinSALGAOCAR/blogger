@@ -18,21 +18,20 @@ Tick the initialize this repository with a README, which will contain the descri
 
 - And then click Create repository to create it.
 - Initialize you local working directory.
-**
-git init
-**
+
+  git init
+
 <br/>
 
 - Add files that you need to push to the GitHub repo.
-**
-git add .
-**
+
+  git add .
 <br/>
 
 - Now commit all the files you have added and give a commit messsage for versioning and tracking.
-**
-git commit -m "initial commit"
-**
+
+  git commit -m "initial commit"
+
 <br/>
 
 - Specifying the remote GitHub branch and indexing the URL to a easy to remember keyword.
