@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+<h1>{{ _('Come, be a starkamaniac') }}</h1>
+<p>We @starkamaniac, spread smiles. Let us do that togather. Join Us!</p>
+<div class="row">
+  <div class="col-md-4">
+    {{ wtf.quick_form(form) }}
+  </div>
+</div>
+{% endblock %}

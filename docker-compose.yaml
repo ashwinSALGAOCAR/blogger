@@ -1,0 +1,51 @@
+version: '3.3'
+services:
+    
+  db:
+    container_name: db
+    image: mysql/mysql-server:5.7
+    env_file: .env-dc-db
+
+  elasticsearch:
+    container_name: es
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.4
+    depends_on:
+      - db
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    env_file: .env-dc-es
+    
+  redis:
+    container_name: redis
+    depends_on:
+      - elasticsearch
+    image: redis:3-alpine
+    ports:
+      -  "6379:6379"
+      
+  starkamaniac:
+    container_name: stark
+    depends_on:
+      - redis
+    image: starkamaniac:latest
+    ports:
+      - "8000:5000"
+    env_file: .env-dc-starkamaniac
+    links:
+      - elasticsearch:elasticsearch
+      - db:dbserver
+      - redis:redis-server
+      
+  rq-worker:
+    container_name: rq1
+    depends_on:
+      - starkamaniac
+    image: starkamaniac:latest
+    env_file: .env-dc-starkamaniac
+    links:
+      - elasticsearch:elasticsearch
+      - db:dbserver
+      - redis:redis-server
+    entrypoint: venv/bin/rq
+    command: worker -u redis://redis-server:6379/0 Starkamaniac-tasks
