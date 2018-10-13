@@ -18,44 +18,54 @@ Tick the initialize this repository with a README, which will contain the descri
 
 - And then click Create repository to create it.
 - Initialize you local working directory.
-...
-git init<br/>
-...
+**
+git init
+**
+<br/>
 
 - Add files that you need to push to the GitHub repo.
-...
+**
 git add .
-...
+**
+<br/>
 
 - Now commit all the files you have added and give a commit messsage for versioning and tracking.
-...
+**
 git commit -m "initial commit"
-...
+**
+<br/>
 
 - Specifying the remote GitHub branch and indexing the URL to a easy to remember keyword.
 <p>
 First go to your repo on GitHub and click on 'Clone or download', which will give you a URL. Select https and copy the URL.<br/>
-...
+**
 git remote add origin URL
-...
+**
+<br/>
+
 origin - is the name the community usually preferes to use to point to the repo source URL, hence we will do the same.
 </p>
 
 - Tagging the commit.
-...
+**
 git tag <Tag_name>
-...
+**
+<br/>
 
 - Pulling the master repo from github first.
-...
+**
 git pull origin master
-...
+**
+<br/>
+
 You need to do this because you repo on GitHub has a README.md file which is not tracked on you local system. So if you try to push without pulll those changes, you will get an error.
 </p>
 
 - Pushing the commits to the GitHub master repo.
-...
+**
 git push -u origin master --tags
-...
+**
+<br/>
+
 This will push all the files that have been tracked and commited on you local system to GitHub master repo.
 </p>
