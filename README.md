@@ -13,23 +13,28 @@ You can choose to add a .gitignore file based on the coding language you are usi
 
 - And then click Create repository to create it.
 - Initialize you local working directory.
-	git init
+
+      git init
 - Add files that you need to push to the GitHub repo.
-	git add .
+
+      git add .
 - Now commit all the files you have added and give a commit messsage for versioning and tracking.
 
-	git commit -m "initial commit"
+      git commit -m "initial commit"
 - Specifying the remote GitHub branch and indexing the URL to a easy to remember keyword.
 First go to your repo on GitHub and click on 'Clone or download', which will give you a URL. Select https and copy the URL.
-	git remote add origin <URL>
-origin - is the name the community usually preferes to use to point to the repo source URL, hence we will do the same.
 
+      git remote add origin <URL>
+origin - is the name the community usually preferes to use to point to the repo source URL, hence we will do the same.       
 - Tagging the commit.
-	git tag <Tag_name>
+
+      git tag <Tag_name>
 - Pulling the master repo from github first.
-	git pull origin master
+
+      git pull origin master
 You need to do this because you repo on GitHub has a README.md file which is not tracked on you local system. So if you try to push without pulll those changes, you will get an error.
 
 - Pushing the commits to the GitHub master repo.
-	git push -u origin master --tags
+
+      git push -u origin master --tags
 This will push all the files that have been tracked and commited on you local system to GitHub master repo.
